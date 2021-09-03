@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
 
-function App() {
+import MainComponent from "./components/MainComponent";
+
+import { CartProvider } from "react-use-cart";
+import Loader from "./components/loader/Loader";
+import CustomHooks from "./components/body/CustomHooks";
+import { useSelector } from "react-redux";
+
+const App = (props) => {
+  const isLoading = useSelector((state) => state.productReducer.isLoading);
+  console.log(isLoading);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <CartProvider>
+        <CustomHooks />
+        {isLoading ? <Loader /> : <MainComponent />}
+        {/* <MainComponent /> */}
+      </CartProvider>
     </div>
   );
-}
+};
 
 export default App;

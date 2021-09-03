@@ -1,0 +1,26 @@
+.navbar-collapse {
+    flex-grow: 0;
+}
+
+.navbar-nav .nav-link {
+    color: #fff !important;
+    text-transform: uppercase;
+    position: relative;
+}
+
+.navbar-nav a.nav-link:after, a.nav-link.active:after {
+    content: "";
+    background-color: #dfe4ea;
+    height: 3px;
+    width: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-radius: 2px;
+    transition: .2s;
+}
+
+.navbar-nav .nav-link:hover:after, a.nav-link.active:after {
+    width: 100%;
+}
+
