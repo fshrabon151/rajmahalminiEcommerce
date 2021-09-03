@@ -17,7 +17,6 @@ const Cart = () => {
 
   const history = useHistory();
 
-
   return (
     <div>
       <div className="container p-80">
@@ -34,20 +33,34 @@ const Cart = () => {
                     return <CartTable key={item.id} {...item} />;
                   })}
                 </div>
-                <button
-                  className="p-2 rounded btn-danger btn-sm float-end"
-                  onClick={() => emptyCart()}
-                >
-                  Clear All
-                </button>
+                <div className="mt-5">
+                  <button
+                    className="p-2 rounded btn-danger btn-sm "
+                    onClick={() => emptyCart()}
+                  >
+                    Clear All
+                  </button>
+
+                  <button
+                    className="btn btn-dark float-end"
+                    onClick={() => history.push("/menu")}
+                  >
+                    Go back
+                  </button>
+                </div>
               </div>
               <div className="col-lg-4 offset-1">
                 <div className="cart-total-info">
                   <h6>
-                    Price: <FormatBDT bdt={ cartTotal } /> 
+                    Price: <FormatBDT bdt={cartTotal} />
                   </h6>
-                  <h6>VAT & SC: <FormatBDT bdt={cartTotal * 0.02}/> (rate: 2%)</h6>
-                  <h6>Total Price: <FormatBDT bdt={cartTotal + cartTotal * 0.02}/></h6>
+                  <h6>
+                    VAT & SC: <FormatBDT bdt={cartTotal * 0.02} /> (rate: 2%)
+                  </h6>
+                  <h6>
+                    Total Price:{" "}
+                    <FormatBDT bdt={cartTotal + cartTotal * 0.02} />
+                  </h6>
                 </div>
 
                 <button className="btn btn-dark w-100 mt-5">

@@ -11,11 +11,8 @@ import FormatBDT from "./FormatBDT";
 const CartBox = () => {
   const {
     isEmpty,
-
     items,
-
     cartTotal,
-
     emptyCart,
   } = useCart();
   useEffect(() => {
